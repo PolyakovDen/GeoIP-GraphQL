@@ -4,6 +4,7 @@
     <div class="container">
       <InputSection />
       <ResultTable />
+      <HistoryTable />
     </div>
   </div>
 </template>
@@ -12,12 +13,14 @@
   import Header from "./Header/Header";
   import InputSection from './InputSection/InputSection'
   import ResultTable from "./Tables/ResultTable"
+  import HistoryTable from "./Tables/HistoryTable";
   export default {
     name: "Wrapper",
     components: {
       Header,
+      InputSection,
       ResultTable,
-      InputSection
+      HistoryTable
     },
     data () {
       return {

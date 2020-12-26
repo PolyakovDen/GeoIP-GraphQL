@@ -65,9 +65,13 @@ export default {
 			if (data) {
 				this.isError = false
 				this.setResultsData(data)
+				this.$store.commit('setInfoByIp', this.resultsData)
+				this.$store.commit('setHistoryData', this.resultsData)
 			} else {
 				this.isError = true
 				this.setResultsData(data)
+				this.$store.commit('setInfoByIp', this.resultsData)
+				this.$store.commit('setHistoryData', this.resultsData)
 			}
 		},
 		setResultsData (data) {
@@ -77,7 +81,7 @@ export default {
 				this.resultsData.country = data.ipAddress.country ? data.ipAddress.country.name : '-'
 				this.resultsData.city = data.ipAddress.country.capital ? data.ipAddress.country.capital.name : '-'
 				this.resultsData.timeZone = data.ipAddress.country.capital.timeZone ? data.ipAddress.country.capital.timeZone.name : '-'
-				this.resultsData.coordinates = data.ipAddress.country ? data.ipAddress.country.location : '-'
+				this.resultsData.coordinates = data.ipAddress.country ? `${data.ipAddress.country.location.lat}N ${data.ipAddress.country.location.long}E` : '-'
 			} else {
 				this.resultsData.ipAddress = this.ip
 				this.resultsData.continent = '-'
