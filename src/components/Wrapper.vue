@@ -2,24 +2,29 @@
   <div class="main-wrapper">
     <Header title="GeoIP" />
     <div class="container">
-      <CustomInput title="IP Address" id="ip" />
-      <CustomButton title="Get information" />
+      <InputSection />
+      <ResultTable />
     </div>
   </div>
 </template>
 
 <script>
+  // import gql from 'graphql-tag';
   import Header from "./Header/Header";
-  import CustomButton from "./ui/CustomButton";
-  import CustomInput from "./ui/CustomInput";
+  import InputSection from './InputSection/InputSection'
+  import ResultTable from "./Tables/ResultTable"
   export default {
     name: "Wrapper",
     components: {
       Header,
-      CustomButton,
-      CustomInput
+      ResultTable,
+      InputSection
+    },
+    data () {
+      return {
+      }
     }
-  }
+}
 </script>
 
 <style scoped>

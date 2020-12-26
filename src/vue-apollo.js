@@ -6,11 +6,7 @@ Vue.use(VueApollo)
 
 const AUTH_TOKEN = 'apollo-token'
 
-const httpEndpoint = process.env.VUE_APP_GRAPHQL_HTTP || 'https://api.everbase.co/graphql?apikey=da4b2287-9b31-48de-b707-26b22f25e4cd'
-
-export const filesRoot = process.env.VUE_APP_FILES_ROOT || httpEndpoint.substr(0, httpEndpoint.indexOf('/graphql'))
-
-Vue.prototype.$filesRoot = filesRoot
+const httpEndpoint = 'http://api.everbase.co/graphql?apikey=da4b2287-9b31-48de-b707-26b22f25e4cd'
 
 const defaultOptions = {
   httpEndpoint,

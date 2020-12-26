@@ -1,6 +1,6 @@
 <template>
   <div class="custom-button">
-    <button class="btn" :class="{ 'disabled-btn': disabled  }">
+    <button class="btn" :class="{ 'disabled-btn': disabled  }" v-on="showAction">
       {{ title }}
     </button>
   </div>
@@ -17,6 +17,13 @@
      disabled: {
       type: Boolean
      }
+    },
+    computed: {
+      showAction () {
+        return {
+          ...this.$listeners
+        };
+      }
     }
   }
 </script>

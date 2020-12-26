@@ -10,7 +10,9 @@
             placeholder="000.000.00.00"
             mask="999.999.99.99"
             maskChar=" "
+            :always-show-mask="false"
             :class="{ 'errorInput': isError }"
+            @input="handleInput"
     />
   </div>
 </template>
@@ -34,6 +36,11 @@
       },
       isError: {
         type: Boolean
+      }
+    },
+     methods: {
+      handleInput(event) {
+        this.$emit("input", event);
       }
     }
   }
