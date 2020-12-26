@@ -27,28 +27,31 @@ export default {
 
 <style scoped>
 	.custom-table {
-    border-collapse: collapse;
     width: 100%;
+    border-collapse: collapse;
 	}
 	.custom-table td {
-    border-left: 1px solid #CCC;
-    border-right: 1px solid #CCC;
-    padding: 8px;
+    padding-top: 11px;
+    padding-bottom: 11px;
     text-align: center;
     font-size: 12px;
+    border-left: 1px solid #CCC;
+    border-right: 1px solid #CCC;
     color: #656565;
+    line-height: 16px;
 	}
 	.custom-table tr {
     border-bottom: 1px solid #CCC;
 	}
 	.custom-table th {
-    border-collapse: collapse;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    border: 1px solid #656BF2;
+    line-height: 16px;
     background-color: #656BF2;
-    color: white;
     text-align: center;
+    border-collapse: collapse;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    border: 1px solid #656BF2;
+    color: white;
     font-size: 12px;
     font-weight: normal;
 	}
