@@ -9,7 +9,6 @@
 </template>
 
 <script>
-  // import gql from 'graphql-tag';
   import Header from "./Header/Header";
   import InputSection from './InputSection/InputSection'
   import ResultTable from "./Tables/ResultTable"

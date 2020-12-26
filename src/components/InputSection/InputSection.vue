@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<CustomInput v-model="ip" title="IP Address" id="ip" />
+		<CustomInput v-model="ip" title="IP Address" id="ip" :isError="isError" />
     <CustomButton @click="handleIp" title="Get information" />
 	</div>
 </template>
@@ -19,7 +19,6 @@ export default {
 	data () {
 		return {
 			ip: '',
-			ipAddress: '',
 			isError: false,
 			resultsData: {
 				ipAddress: '',
@@ -41,11 +40,18 @@ export default {
 							address
 							country {
 								name
-							}
-							city {
-								name
-								timeZone {
+								continent {
+                  name
+                }
+                location {
+                	lat
+                	long
+                }
+                capital {
 									name
+									timeZone {
+										name
+									}
 								}
 							}
 						}
@@ -56,8 +62,31 @@ export default {
 					address: this.ip
 				}
 			})
-			console.log(data);
+			if (data) {
+				this.isError = false
+				this.setResultsData(data)
+			} else {
+				this.isError = true
+				this.setResultsData(data)
+			}
 		},
+		setResultsData (data) {
+			if (data) {
+				this.resultsData.ipAddress = data.ipAddress.address
+				this.resultsData.continent = data.ipAddress.country.continent ? data.ipAddress.country.continent.name : '-'
+				this.resultsData.country = data.ipAddress.country ? data.ipAddress.country.name : '-'
+				this.resultsData.city = data.ipAddress.country.capital ? data.ipAddress.country.capital.name : '-'
+				this.resultsData.timeZone = data.ipAddress.country.capital.timeZone ? data.ipAddress.country.capital.timeZone.name : '-'
+				this.resultsData.coordinates = data.ipAddress.country ? data.ipAddress.country.location : '-'
+			} else {
+				this.resultsData.ipAddress = this.ip
+				this.resultsData.continent = '-'
+				this.resultsData.country = '-'
+				this.resultsData.city = '-'
+				this.resultsData.timeZone = '-'
+				this.resultsData.coordinates = '-'
+			}
+		}
 	}
 }
 </script>

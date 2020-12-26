@@ -2,7 +2,7 @@
 	<div>
 		<table class="custom-table">
 			<tr class="custom-table__title">
-				<th v-for="(title, index) in dataArray" :key="index">
+				<th v-for="(title, index) in titles" :key="index">
 					{{ title }}
 				</th>
 			</tr>
@@ -21,6 +21,18 @@ export default {
 	props: {
 		dataArray: {
 			type: Array
+		}
+	},
+	data () {
+		return {
+			titles: [
+				'IP address',
+				'Continent/code',
+				'Country/code',
+        'City',
+        'Time zone',
+        'Coordinates'
+			]
 		}
 	}
 }

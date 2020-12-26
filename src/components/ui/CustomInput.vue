@@ -6,14 +6,13 @@
     <input-mask
             class="custom-input"
             :id="id"
-            :value="value"
             placeholder="000.000.00.00"
             mask="999.999.99.99"
             maskChar=" "
-            :always-show-mask="false"
             :class="{ 'errorInput': isError }"
             @input="handleInput"
     />
+    <p class="errorInput__msg" v-if="isError">Invalid IP. Please choose another one!</p>
   </div>
 </template>
 
@@ -72,5 +71,10 @@
   }
   .errorInput {
     border: 1px solid #FF6C6C;
+  }
+  .errorInput__msg {
+    color: #FF6C6C;
+    font-size: 12px;
+    line-height: 0;
   }
 </style>
