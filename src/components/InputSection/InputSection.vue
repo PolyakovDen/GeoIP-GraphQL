@@ -40,6 +40,7 @@ export default {
 							address
 							country {
 								name
+								alpha2Code
 								continent {
                   name
                 }
@@ -65,23 +66,21 @@ export default {
 			if (data) {
 				this.isError = false
 				this.setResultsData(data)
-				this.$store.commit('setInfoByIp', this.resultsData)
-				this.$store.commit('setHistoryData', this.resultsData)
+				this.updateTablesData(this.resultsData)
 			} else {
 				this.isError = true
 				this.setResultsData(data)
-				this.$store.commit('setInfoByIp', this.resultsData)
-				this.$store.commit('setHistoryData', this.resultsData)
+				this.updateTablesData(this.resultsData)
 			}
 		},
 		setResultsData (data) {
 			if (data) {
 				this.resultsData.ipAddress = data.ipAddress.address
 				this.resultsData.continent = data.ipAddress.country.continent ? data.ipAddress.country.continent.name : '-'
-				this.resultsData.country = data.ipAddress.country ? data.ipAddress.country.name : '-'
+				this.resultsData.country = data.ipAddress.country ? `${data.ipAddress.country.name}/${data.ipAddress.country.alpha2Code}` : '-'
 				this.resultsData.city = data.ipAddress.country.capital ? data.ipAddress.country.capital.name : '-'
 				this.resultsData.timeZone = data.ipAddress.country.capital.timeZone ? data.ipAddress.country.capital.timeZone.name : '-'
-				this.resultsData.coordinates = data.ipAddress.country ? `${data.ipAddress.country.location.lat}N ${data.ipAddress.country.location.long}E` : '-'
+				this.resultsData.coordinates = data.ipAddress.country ? `${data.ipAddress.country.location.lat.toFixed(1)}/${data.ipAddress.country.location.long.toFixed(1)}` : '-'
 			} else {
 				this.resultsData.ipAddress = this.ip
 				this.resultsData.continent = '-'
@@ -90,6 +89,10 @@ export default {
 				this.resultsData.timeZone = '-'
 				this.resultsData.coordinates = '-'
 			}
+		},
+		updateTablesData (data) {
+			this.$store.commit('setInfoByIp', data)
+			this.$store.commit('setHistoryData', data)
 		}
 	}
 }
