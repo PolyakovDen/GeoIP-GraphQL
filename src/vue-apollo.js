@@ -6,7 +6,7 @@ Vue.use(VueApollo)
 
 const AUTH_TOKEN = 'apollo-token'
 
-const httpEndpoint = 'http://api.everbase.co/graphql?apikey=da4b2287-9b31-48de-b707-26b22f25e4cd'
+const httpEndpoint = 'https://api.everbase.co/graphql?apikey=da4b2287-9b31-48de-b707-26b22f25e4cd'
 
 const defaultOptions = {
   httpEndpoint,
