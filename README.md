@@ -1,4 +1,4 @@
-# test-dzen
+# DEMO: https://dzen-testtask.netlify.app/
 
 ## Project setup
 ```
