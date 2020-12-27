@@ -1,8 +1,8 @@
 <template>
   <div class="history-table">
-    <p class="history-table__title">History</p>
+    <p class="history-table__title">{{ $t('history') }}</p>
     <CustomTable :titles="titles" :dataArray="getHistoryData" />
-    <CustomButton @click="deleteHistoryData" title="Clear history" :disabled="emptyHistoryData" />
+    <CustomButton @click="deleteHistoryData" :title="$t('clearHistory')" :disabled="emptyHistoryData" />
   </div>
 </template>
 
@@ -17,11 +17,6 @@
     },
     data () {
       return {
-        titles: [
-          'IP address',
-          'Country/code',
-          'City'
-        ],
         emptyHistoryData: false
       }
     },
@@ -33,6 +28,13 @@
       },
       historyData () {
         return this.$store.getters.getHistoryData
+      },
+      titles () {
+        return [
+          this.$t('address'),
+          this.$t('country'),
+          this.$t('city')
+        ]
       }
     },
     watch: {

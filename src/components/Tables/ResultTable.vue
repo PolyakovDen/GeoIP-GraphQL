@@ -1,6 +1,6 @@
 <template>
 	<div class="result-table">
-		<p class="result-table__title">Result</p>
+		<p class="result-table__title">{{ $t('result') }}</p>
 		<CustomTable :dataArray="getInfoByIp" :titles="titles" />
 	</div>
 </template>
@@ -14,14 +14,6 @@ export default {
 	},
 	data () {
 		return {
-			titles: [
-				'IP address',
-				'Continent/code',
-				'Country/code',
-				'City',
-				'Time zone',
-				'Coordinates'
-			]
 		}
 	},
 	computed: {
@@ -29,6 +21,16 @@ export default {
 			const data = this.$store.getters.getInfoByIp
 			const defaultData = this.$store.getters.getDefaultData
 			return data.length > 0 ? data : defaultData
+		},
+		titles () {
+			return [
+				this.$t('address'),
+				this.$t('continent'),
+				this.$t('country'),
+				this.$t('city'),
+				this.$t('timeZone'),
+				this.$t('coordinates')
+			]
 		}
 	}
 }

@@ -23,7 +23,8 @@ export default new Vuex.Store({
         country: '',
         city: ''
       }
-    ]
+    ],
+    locale: 'en'
   },
   getters: {
     getInfoByIp: state => state.infoByIp,
@@ -47,6 +48,9 @@ export default new Vuex.Store({
     },
     clearHistoryData (state) {
       state.historyData = []
+    },
+    setLocale (state, payload) {
+      state.locale = payload
     }
   }
 })

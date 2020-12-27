@@ -1,0 +1,13 @@
+{
+  "ipAddress": "IP address",
+  "infButton": "Get information",
+  "result": "Result",
+  "address": "IP address",
+  "continent": "Continent/code",
+  "country": "Country/code",
+  "city": "City",
+  "timeZone": "Time zone",
+  "coordinates": "Coordinates",
+  "history": "History",
+  "clearHistory": "Clear history"
+}

@@ -1,7 +1,7 @@
 <template>
 	<div>
-		<CustomInput v-model="ip" title="IP Address" id="ip" :isError="isError" />
-    <CustomButton @click="handleIp" title="Get information" />
+		<CustomInput v-model="ip" :title="$t('ipAddress')" id="ip" :isError="isError" />
+    <CustomButton @click="handleIp" :title="$t('infButton')" />
 	</div>
 </template>
 
